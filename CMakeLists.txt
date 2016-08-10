@@ -41,16 +41,16 @@ add_test (CMakeTestRuns CMakeTest 25)
 
 # does it sqrt of 25
 add_test (CMakeTestComp25 CMakeTest 25)
-set_tests_properties (CMakeTestComp25 PROPERTIES PASS_REGULAR_EXPRESSION “25 is 5”)
+set_tests_properties (CMakeTestComp25 PROPERTIES PASS_REGULAR_EXPRESSION "25 is 5")
 
 # does it handle negative numbers
 add_test (CMakeTestNegative CMakeTest -25)
-set_tests_properties (CMakeTestNegative PROPERTIES PASS_REGULAR_EXPRESSION “-25 is 0”)
+set_tests_properties (CMakeTestNegative PROPERTIES PASS_REGULAR_EXPRESSION "-25 is nan")
 
 # does it handle small numbers
 add_test (CMakeTestSmall CMakeTest 0.0001)
-set_tests_properties (CMakeTestSmall PROPERTIES PASS_REGULAR_EXPRESSION “0.0001 is 0.01”)
+set_tests_properties (CMakeTestSmall PROPERTIES PASS_REGULAR_EXPRESSION "0.0001 is 0.01")
 
 # does the usage message work?
 add_test (CMakeTestUsage CMakeTest)
-set_tests_properties (CMakeTestUsage PROPERTIES PASS_REGULAR_EXPRESSION “Usage:.*number”)
+set_tests_properties (CMakeTestUsage PROPERTIES PASS_REGULAR_EXPRESSION "Usage:.*number")
