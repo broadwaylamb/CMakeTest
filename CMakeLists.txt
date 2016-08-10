@@ -2,9 +2,6 @@ cmake_minimum_required(VERSION 2.8)
 
 project(CMakeTest)
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 # The version number.
 set (CMakeTest_VERSION_MAJOR 1)
 set (CMakeTest_VERSION_MINOR 0)
