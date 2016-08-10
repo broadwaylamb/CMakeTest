@@ -2,6 +2,12 @@ cmake_minimum_required(VERSION 2.8)
 
 project(CMakeTest)
 
+set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_definitions (-coverage)
+set (CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} " -coverage")
+
 # The version number.
 set (CMakeTest_VERSION_MAJOR 1)
 set (CMakeTest_VERSION_MINOR 0)
@@ -42,10 +48,6 @@ add_test (CMakeTestRuns CMakeTest 25)
 # does it sqrt of 25
 add_test (CMakeTestComp25 CMakeTest 25)
 set_tests_properties (CMakeTestComp25 PROPERTIES PASS_REGULAR_EXPRESSION "25 is 5")
-
-# does it handle negative numbers
-add_test (CMakeTestNegative CMakeTest -25)
-set_tests_properties (CMakeTestNegative PROPERTIES PASS_REGULAR_EXPRESSION "-25 is nan")
 
 # does it handle small numbers
 add_test (CMakeTestSmall CMakeTest 0.0001)
