@@ -8,21 +8,21 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-6
+            - g++-5
       env:
-        - CXX=g++-6
-        - CC=gcc-6
+        - CXX=g++-5
+        - CC=gcc-5
     - compiler: clang
       addons:
         apt:
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.9
+            - llvm-toolchain-precise-3.7
           packages:
-            - clang-3.9
+            - clang-3.7
       env:
-        - CXX=clang++-3.9
-        - CC=clang-3.9
+        - CXX=clang++-3.7
+        - C=clang-3.7
 
 script:
   - mkdir build && cd build && cmake ../
