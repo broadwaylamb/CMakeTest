@@ -1,28 +1,10 @@
 language: cpp
 
-matrix:
-  include:
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-5
-      env:
-        - CXX=g++-5
-        - CC=gcc-5
-    - compiler: clang
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.7
-          packages:
-            - clang-3.7
-      env:
-        - CXX=clang++-3.7
-        - C=clang-3.7
+os:
+  - linux
+  - osx
+
+compiler: clang
 
 script:
   - mkdir build && cd build && cmake ../
