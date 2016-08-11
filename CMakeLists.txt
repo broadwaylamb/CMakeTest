@@ -58,4 +58,4 @@ set_tests_properties (CMakeTestComp25 PROPERTIES PASS_REGULAR_EXPRESSION "25 is 
 
 # does libsodium work?
 add_test (CMakeTestLibsodium CMakeTest)
-set_tests_properties (CMakeTestUsage PROPERTIES PASS_REGULAR_EXPRESSION "Sodium")
+set_tests_properties (CMakeTestLibsodium PROPERTIES PASS_REGULAR_EXPRESSION "Sodium")
