@@ -50,16 +50,12 @@ install (FILES "${PROJECT_BINARY_DIR}/CMakeTestConfig.h"
 include (CTest)
 
 # does the application run
-add_test (CMakeTestRuns CMakeTest 25)
+add_test (CMakeTestRuns CMakeTest)
 
 # does it sqrt of 25
-add_test (CMakeTestComp25 CMakeTest 25)
+add_test (CMakeTestComp25 CMakeTest)
 set_tests_properties (CMakeTestComp25 PROPERTIES PASS_REGULAR_EXPRESSION "25 is 5")
 
-# does it handle small numbers
-add_test (CMakeTestSmall CMakeTest 0.0001)
-set_tests_properties (CMakeTestSmall PROPERTIES PASS_REGULAR_EXPRESSION "0.0001 is 0.01")
-
-# does the usage message work?
-add_test (CMakeTestUsage CMakeTest)
-set_tests_properties (CMakeTestUsage PROPERTIES PASS_REGULAR_EXPRESSION "Usage:.*number")
+# does libsodium work?
+add_test (CMakeTestLibsodium CMakeTest)
+set_tests_properties (CMakeTestUsage PROPERTIES PASS_REGULAR_EXPRESSION "Sodium")

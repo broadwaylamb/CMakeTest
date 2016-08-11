@@ -11,14 +11,14 @@
 
 int main(int argc, char *argv[]) {
 
-    int inputValue = 2;
-    
+    int inputValue = 25;
+
 #ifdef USE_MYMATH
     int outputValue = mysqrt(inputValue);
 #else
     int outputValue = sqrt(inputValue);
 #endif
-    
+
     fprintf(stdout, "The square root of %d is %d\n", inputValue, outputValue);
     fprintf(stdout, "Sodium init: %d\n", sodium_init());
     return 0;
