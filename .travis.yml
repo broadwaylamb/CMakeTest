@@ -9,7 +9,8 @@ compiler: clang
 script:
   - mkdir build && cd build && cmake ../
   - make
-  - ctest
+  - make test
 
 after_success:
+  - ctest -T Coverage
   - bash <(curl -s https://codecov.io/bash)

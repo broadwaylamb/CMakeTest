@@ -5,8 +5,10 @@ project(CMakeTest)
 set (CMAKE_CXX_STANDARD 11)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# add_definitions (-coverage)
-# set (CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} " -coverage")
+set (COVERAGE_COMPILE_FLAGS "-fprofile-arcs -ftest-coverage")
+set (COVERAGE_LINK_FLAGS "--coverage")
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COVERAGE_COMPILE_FLAGS}")
+set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${COVERAGE_LINK_FLAGS}")
 
 # The version number.
 set (CMakeTest_VERSION_MAJOR 1)
@@ -39,8 +41,7 @@ install (TARGETS CMakeTest DESTINATION bin)
 install (FILES "${PROJECT_BINARY_DIR}/CMakeTestConfig.h"
          DESTINATION include)
 
-include(CTest)
-
+include (CTest)
 
 # does the application run
 add_test (CMakeTestRuns CMakeTest 25)
