@@ -32,6 +32,11 @@ if (USE_MYMATH)
     set (EXTRA_LIBS ${EXTRA_LIBS} MathFunctions)
 endif (USE_MYMATH)
 
+include_directories ("${PROJECT_SOURCE_DIR}/libsodium")
+set (EXTRA_LIBS ${EXTRA_LIBS} libsodium)
+add_library(libsodium STATIC IMPORTED)
+set_property(TARGET libsodium PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libsodium/libsodium.a")
+
 # add the executable
 add_executable(CMakeTest Source/main.cpp)
 target_link_libraries (CMakeTest ${EXTRA_LIBS})
@@ -40,6 +45,7 @@ target_link_libraries (CMakeTest ${EXTRA_LIBS})
 install (TARGETS CMakeTest DESTINATION bin)
 install (FILES "${PROJECT_BINARY_DIR}/CMakeTestConfig.h"
          DESTINATION include)
+
 
 include (CTest)
 
